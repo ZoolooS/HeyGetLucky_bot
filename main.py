@@ -1,15 +1,6 @@
 import logging
-# import sys
-# from random import randint
-# from uuid import uuid4
-# from telegram import (
-#     # InlineQueryResultArticle,
-#     # InputTextMessageContent,
-#     Update,
-# )
 from telegram.ext import (
     ApplicationBuilder,
-    # ContextTypes,
     CommandHandler,
     filters,
     # InlineQueryHandler,
@@ -20,9 +11,8 @@ from gl_conf.config import TOKEN
 from handlers import (
     handle_start,
     handle_help,
-    # handle_roll_d6,
     handle_roll,
-    handle_caps,
+    # handle_caps,
     handle_unknown,
 )
 
@@ -33,11 +23,10 @@ def main():
     handlers = [
         CommandHandler('start', handle_start),
         CommandHandler('help', handle_help),
-        # CommandHandler('d6', handle_roll_d6),
         CommandHandler('roll', handle_roll),
-        # MessageHandler(filters.TEXT & (~filters.COMMAND), handle_echo),
-        CommandHandler('caps', handle_caps),
+        # CommandHandler('caps', handle_caps),
         # InlineQueryHandler(handle_inline_caps),
+        # MessageHandler(filters.TEXT & (~filters.COMMAND), handle_echo),
         MessageHandler(filters.COMMAND, handle_unknown),
     ]
 
